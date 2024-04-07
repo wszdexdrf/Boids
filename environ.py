@@ -1,14 +1,17 @@
 import tkinter
-from boid import Boid
+import boid
 import math
 
+boid.width = 1920
+boid.height = 1080
+boid.bounce = False
 
 master = tkinter.Tk()
-w = tkinter.Canvas(master, bg='gray15', width=1600, height=900)
+w = tkinter.Canvas(master, bg='gray15', width=boid.width, height=boid.height)
 w.pack()
 boids = []
 for _ in range(100):
-    boids.append(Boid(w))
+    boids.append(boid.Boid(w))
 while True:
     for bd in boids:
         w.move(bd.obj, bd.vel[0], bd.vel[1])
